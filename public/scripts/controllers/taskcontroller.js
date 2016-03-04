@@ -2,7 +2,6 @@ myApp.controller('TaskController', ['$scope', '$http', function($scope, $http) {
   console.log('TaskController loaded!');
 
   $scope.tasks = [];
-  $scope.completeClass = {green:false};
 
   var getTasks = function() {
     var promise = $http.get('/tasklist').then(function(response) {
@@ -27,18 +26,21 @@ myApp.controller('TaskController', ['$scope', '$http', function($scope, $http) {
     $scope.taskName = '';
   };
 
+//completes a task
   $scope.completeTask = function(id) {
     $http.put('/tasklist/completed/' + id).then(function() {
     });
     getTasks();
   };
 
+//sets task back to incomplete
   $scope.redoTask = function(id) {
     $http.put('/tasklist/incomplete/' + id).then(function() {
     });
     getTasks();
   };
 
+//deleted task from db
   $scope.deleteTask = function(id) {
     var confirmation = confirm("Press OK to DELETE task");
 
@@ -48,11 +50,5 @@ myApp.controller('TaskController', ['$scope', '$http', function($scope, $http) {
       getTasks();
     }
   };
-
-// var addClass = function(status) {
-//   if(status === false) {
-//    $scope.completeClass.green = true;
-//   }
-// };
 
 }]);
