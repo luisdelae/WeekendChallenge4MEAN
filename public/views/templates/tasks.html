@@ -1,10 +1,10 @@
 <div class="row col-md-12 text-center">
   <h2>Tasks!</h2>
-  <div class="task" ng-repeat="task in tasks">
+  <div class="task" ng-repeat="task in tasks" ng-class="{'completed': task.taskStatus == true}">
     <p>{{task.taskName}}</p>
 
-    <button class="btn btn-success" ng-click="completeTask(task._id)">Complete</button>
-
+    <button ng-if="task.taskStatus == false" class="btn btn-success" ng-click="completeTask(task._id)">Complete</button>
+    <button ng-if="task.taskStatus == true" class="btn btn-success" ng-click="redoTask(task._id)">Redo</button>
     <button class="btn btn-danger" ng-click="deleteTask(task._id)">Delete</button>
   </div>
 </div>

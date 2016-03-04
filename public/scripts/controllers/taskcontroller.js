@@ -17,7 +17,7 @@ myApp.controller('TaskController', ['$scope', '$http', function($scope, $http) {
   $scope.addTask = function() {
     var task = {
       taskName: $scope.taskName,
-      taskStatus: true
+      taskStatus: false
     };
 
     $http.post('/tasklist', task).then(function(response) {
@@ -28,7 +28,13 @@ myApp.controller('TaskController', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.completeTask = function(id) {
-    $http.put('/tasklist/' + id).then(function() {
+    $http.put('/tasklist/completed/' + id).then(function() {
+    });
+    getTasks();
+  };
+
+  $scope.redoTask = function(id) {
+    $http.put('/tasklist/incomplete/' + id).then(function() {
     });
     getTasks();
   };

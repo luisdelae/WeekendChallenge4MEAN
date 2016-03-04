@@ -36,7 +36,7 @@ app.post('/tasklist', function(req, res) {
         console.log('ERROR:: ', err);
       }
       res.send(data);
-    });
+    }).sort('taskStatus');
   });
 });
 
@@ -46,10 +46,31 @@ app.get('/tasklist', function(req, res) {
       console.log('ERROR:', err);
     }
     res.send(data);
-  }).sort('-taskStatus');
+  }).sort('taskStatus');
 });
 
-app.put('/tasklist/:id', function(req, res) {
+app.put('/tasklist/completed/:id', function(req, res) {
+
+  var updateTask = {
+    "taskStatus": true,
+  };
+
+  Task.findByIdAndUpdate(
+    {_id: req.params.id},
+    {
+      $set:
+        {taskStatus: updateTask.taskStatus}
+    },
+    function(err, data) {
+      if (err) {
+        console.log('ERROR:', err);
+      }
+      res.send(data);
+    }
+  );
+});
+
+app.put('/tasklist/incomplete/:id', function(req, res) {
 
   var updateTask = {
     "taskStatus": false,
