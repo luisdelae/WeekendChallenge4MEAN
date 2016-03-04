@@ -23,8 +23,6 @@ var Task = mongoose.model('Task');
 
 app.post('/tasklist', function(req, res) {
 
-  console.log('in /tasklist post req.body: ', req.body);
-
   var addTask = new Task({
     "taskName": req.body.taskName,
     "taskStatus": req.body.taskStatus
@@ -43,7 +41,6 @@ app.post('/tasklist', function(req, res) {
 });
 
 app.get('/tasklist', function(req, res) {
-  console.log('in task list get on server');
   Task.find({}, function(err, data) {
     if (err) {
       console.log('ERROR:', err);
@@ -74,7 +71,6 @@ app.put('/tasklist/:id', function(req, res) {
 });
 
 app.delete('/tasklist/:id', function(req, res) {
-  console.log('id to delete', req.params.id);
   Task.findByIdAndRemove({"_id": req.params.id}, function(err, data) {
     if (err) {
       console.log('ERROR:', err);
