@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>To Do List</title>
+
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/taskcontroller.js"></script>
+
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/stylesheet.css" />
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="TaskController">
+    <div class="row col-md-12 text-center jumbotron">
+      <h1>To Do List</h1>
+    </div>
+    <div class="row col-md-12 text-center">
+      <form id="taskCreateForm">
+        <label for="taskName"></label>
+        <input type="text" id="taskName" name="taskName" ng-model="taskName"/>
+        <button class="btn submit_task" ng-click="addTask()">Submit Task</button>
+      </form>
+    </div>
+    <main ng-view></main>
+  </body>
+</html>

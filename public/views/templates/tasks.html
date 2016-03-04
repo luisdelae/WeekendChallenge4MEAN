@@ -1,0 +1,10 @@
+<div class="row col-md-12 text-center">
+  <h2>Tasks!</h2>
+  <div class="task" ng-repeat="task in tasks">
+    <p>{{task.taskName}}</p>
+
+    <button class="btn btn-success" ng-click="completeTask(task._id)">Complete</button>
+
+    <button class="btn btn-danger" ng-click="deleteTask(task._id)">Delete</button>
+  </div>
+</div>
