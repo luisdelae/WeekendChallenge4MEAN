@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luisdelae/WeekendChallenge5MEAN.git"
+    "url": "git+https://github.com/luisdelae/WeekendChallenge4MEAN.git"
   },
   "author": "Luis De La Espriella",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luisdelae/WeekendChallenge5MEAN/issues"
+    "url": "https://github.com/luisdelae/WeekendChallenge4MEAN/issues"
   },
-  "homepage": "https://github.com/luisdelae/WeekendChallenge5MEAN#readme",
+  "homepage": "https://github.com/luisdelae/WeekendChallenge4MEAN#readme",
   "dependencies": {
     "angular": "^1.5.0",
     "angular-route": "^1.5.0",
